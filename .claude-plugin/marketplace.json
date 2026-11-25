@@ -1,0 +1,18 @@
+{
+  "name": "treasury-cash-forecast",
+  "description": "Treasury Cash Forecast: a 12-month cash-flow forecast plugin for corporate treasury.",
+  "metadata": {
+    "description": "Treasury Cash Forecast: a 12-month cash-flow forecast plugin for corporate treasury."
+  },
+  "owner": {
+    "name": "Prabhusekaran Muthappan",
+    "url": "https://github.com/Prabhusekaran"
+  },
+  "plugins": [
+    {
+      "name": "treasury-cash-forecast",
+      "source": "./",
+      "description": "A 12-month monthly direct cash-flow forecast for corporate treasury, with scenarios, reconciled to the cent. The numbers come from a tested engine, not from the language model."
+    }
+  ]
+}

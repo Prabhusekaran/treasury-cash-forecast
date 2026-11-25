@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.DS_Store
+cash_forecast_output/
+cash_forecast_input/
+dist/
