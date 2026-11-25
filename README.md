@@ -112,7 +112,31 @@ Nothing else is downloaded.
 - Monthly, 12 months ahead, one currency, one entity.
 - No uncertainty range for closing cash.
 - The example companies are invented. No claim is made about accuracy on a real company.
-- Not financial advice.
+
+## A person decides
+
+This plugin is a forecasting aid, not financial advice. It moves no money and takes no
+action on any account. A forecast continues the past and adds what you told it; it can be
+wrong. A qualified person must review the result before any decision is based on it.
+
+## If something does not work
+
+- **"Python cannot load statsmodels" or "openpyxl".** The two libraries are missing where
+  the assistant runs code. Ask the assistant to install them and run the step again. If
+  code execution is switched off in your assistant, the plugin cannot run there.
+- **"The input has problems. Nothing was forecast."** The check lists every problem with
+  the sheet and the row number as Excel shows it. Fix those rows and run it again.
+- **"The history does not tie."** Opening cash plus all lines does not equal closing cash
+  in the months named. A line is usually missing, or an amount is wrong.
+- **The assistant answers without using the plugin.** Start a new chat, and name it:
+  "Use the Treasury Cash Forecast plugin."
+- **A figure looks wrong.** Open the sheet "Where numbers come from" in the workbook. Its
+  "Source row" column names the rows of your input behind that figure.
+
+## Support
+
+Questions, problems and security concerns: open an issue at
+https://github.com/Prabhusekaran/treasury-cash-forecast/issues
 
 ## Where it comes from
 
