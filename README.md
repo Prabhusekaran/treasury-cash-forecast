@@ -20,7 +20,7 @@ inside the plugin.
 |---|---|---|
 | Claude (chat, Cowork, Claude Code) | Tested | See "Install in Claude" below |
 | Hermes Agent | Tested, listed in the Hermes Marketplace | `hermes plugins install treasury-cash-forecast` ([its own repository](https://github.com/Prabhusekaran/hermes-treasury-cash-forecast)) |
-| ChatGPT and Codex | Built to the documented plugin format, not yet run there | See "ChatGPT and Codex" below |
+| ChatGPT and Codex | Built to the documented plugin format, not yet run there, not in the directory | See "ChatGPT and Codex" below |
 | DeepSeek Harness | Built to the documented skill format, not yet run there | See "DeepSeek Harness" below |
 
 The forecasting engine, the two example companies and the result workbook are the same
@@ -44,9 +44,10 @@ In Claude Code:
 
 ## ChatGPT and Codex
 
-The package follows the layout OpenAI accepts for a skills-only plugin (a manifest with a
-description and a skill under `skills/`). It has not been published in the ChatGPT
-directory yet, and it has not been run in ChatGPT.
+The package follows the layout OpenAI documents for a skills-only plugin, with its listing
+details in `.codex-plugin/plugin.json`. It is not in the ChatGPT directory: on
+25 November 2026 OpenAI's submission portal was not accepting skills-only plugins. It has
+not been run in ChatGPT.
 
 To try the skill in Codex on your own computer, copy it into your skills folder:
 
@@ -145,6 +146,6 @@ The engine is the same code as the Treasury Cash Forecast plugin for Hermes Agen
 same figures. The few wording changes made for this package are listed at the top of
 `skills/cash-forecast/scripts/treasury_cash_forecast/__init__.py`.
 
-## Licence
+## Licence and terms
 
-MIT.
+MIT. See [LICENSE](LICENSE) and the short [terms of use](TERMS.md).
