@@ -21,7 +21,7 @@ inside the plugin.
 | Claude (chat, Cowork, Claude Code) | Tested | See "Install in Claude" below |
 | Hermes Agent | Tested, listed in the Hermes Marketplace | `hermes plugins install treasury-cash-forecast` ([its own repository](https://github.com/Prabhusekaran/hermes-treasury-cash-forecast)) |
 | ChatGPT and Codex | Built to the documented plugin format, not yet run there, not in the directory | See "ChatGPT and Codex" below |
-| DeepSeek Harness | Built to the documented skill format, not yet run there | See "DeepSeek Harness" below |
+| DeepSeek Harness | Tested as a skill (harness 0.2.2-rc.1, 25 November 2026) | See "DeepSeek Harness" below |
 
 The forecasting engine, the two example companies and the result workbook are the same
 everywhere.
@@ -61,7 +61,12 @@ pip install "statsmodels>=0.14,<1" "openpyxl>=3.1,<4"
 ## DeepSeek Harness
 
 DeepSeek Harness loads skills from `~/.agents/skills`. The same four commands as above
-install it; then restart `dsh`. It has not been run in DeepSeek Harness yet.
+install it; then restart `dsh`. On Debian or Ubuntu, `pip` needs
+`--break-system-packages` at the end of its line.
+
+Then ask, for example: "Use the cash-forecast skill: create the hotel example and run the
+forecast." Tested on 25 November 2026 with the hotel example: the figures are the same as
+in Claude, to the cent.
 
 ## Use it
 
