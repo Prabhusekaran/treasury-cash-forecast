@@ -47,7 +47,8 @@ document. `"success": false` means nothing was forecast; show the user the `erro
 every entry of `problems` as written.
 
 **The user's file name.** A file the user attaches is often stored under a random prefix,
-for example `0bb90bb2-cash_forecast_example_hotel.xlsx`. Pass that path as it is. The
+for example `0bb90bb2-cash_forecast_example_hotel.xlsx`. Pass that path as it is; do not
+copy or move the upload somewhere else first. The
 script copies such an upload into `./cash_forecast_input/` under the user's own file name
 and works on the copy, so the result workbook names the file the way the user knows it;
 the output then carries an `input_note` saying so. When you mention the file to the user,
@@ -145,7 +146,10 @@ opposite. To say what a scenario does in words, use the note the user wrote for 
    forecast as of a date uses only what was known then. Never suggest changing
    `known_from`, the date or `origin_month` to bring it in. If the user wants to see its
    effect, offer to add it as a scenario.
-5. Any `warnings` and `model_notes`. The check also returns a reminder
+5. Any `warnings` and `model_notes`. One warning does not wait for point 5: if a warning
+   says a percent "is read as" less than 1%, a scenario is probably a hundred times weaker
+   than the user meant (0.08 typed where 8 was meant). Say so at the very top of the
+   report, before point 1, and name the rows. The check also returns a reminder
    (`check_with_the_user`) to delete rows left over from the example. That reminder is
    for a user who has put their own data into the template. When `data_kind` is
    `synthetic`, the file is an example and its rows are the data: do not raise it.
@@ -166,6 +170,9 @@ figure. Do not suggest edits to the user's history or known amounts on your own 
   came from. `run` already saves to `./cash_forecast_output/<input name>-<fingerprint>/`.
 - Do not change the user's file. If they ask you to edit a scenario or an amount, make
   the edit in a copy, tell them exactly which cells changed, and give them the copy.
+- A percentage in the `scenarios` sheet is written as the number of percent: 8% lower is
+  `-8`, never `-0.08`. In the Excel template the cell shows it as -8%. When you write or
+  change such a cell, write the number and leave the cell's format as it is.
 - Do not choose a different model than the user or the template asked for.
 - The example companies are invented. Never present their figures as real, and never
   claim the forecast is accurate for a real company.

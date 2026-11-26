@@ -28,6 +28,7 @@ HERE = Path(__file__).resolve().parent
 LIBRARIES = {"statsmodels": "statsmodels>=0.14,<1", "openpyxl": "openpyxl>=3.1,<4"}
 MODELS = ["ets", "sarima", "baseline", "seasonal_drift", "seasonal_naive", "previous_month", "chronos_2"]
 UPLOAD_PREFIX = re.compile(r"^[0-9a-f]{8}-(?P<name>.+)$")
+UPLOAD_FOLDERS = (Path("/mnt/user-data/uploads"),)      # where chat uploads are kept, when the host has one
 
 
 def missing_libraries():
@@ -79,11 +80,15 @@ def under_the_users_own_name(input_path):
     A chat upload is stored as "<8 random characters>-<the user's file name>" in a folder called
     uploads. The result workbook states the name of its input, and it should state the name the
     user knows. So such a file is copied, unchanged, into ./cash_forecast_input/ under its own
-    name and the copy is used. Nothing else is renamed, and the upload itself is never touched.
+    name and the copy is used. The same is done for a copy of an upload that was put somewhere
+    else under its stored name, as long as the upload is still in its uploads folder. Nothing
+    else is renamed, and the upload itself is never touched.
     """
     source = Path(input_path)
     found = UPLOAD_PREFIX.match(source.name)
-    if not (found and source.is_file() and "uploads" in source.parts):
+    if not (found and source.is_file()):
+        return input_path, None
+    if "uploads" not in source.parts and not any((folder / source.name).is_file() for folder in UPLOAD_FOLDERS):
         return input_path, None
     folder = Path.cwd() / "cash_forecast_input"
     folder.mkdir(parents=True, exist_ok=True)

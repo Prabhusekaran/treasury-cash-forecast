@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "treasury-cash-forecast",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A 12-month monthly direct cash-flow forecast for corporate treasury. Fill one Excel template with your past cash flows, the payments you already know and your what-ifs; get one workbook with a base case and every scenario, reconciled to the cent, with every figure traced to the row of your input. The numbers come from a tested engine, not from the language model.",
   "author": {
     "name": "Prabhusekaran Muthappan",

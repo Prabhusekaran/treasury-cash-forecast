@@ -29,7 +29,10 @@ level of the last amount.
 
 **Scenarios.** `percent` changes the size of a line: `-4` on receipts means 4% lower
 receipts, `4` on a payment line means 4% higher payments. It is taken from the line's
-base-case figure for that month. `amount` is a fixed sum per month. Empty `from_month`
+base-case figure for that month. In the Excel template the cell shows `-4` as -4%; the
+cell still holds -4. A cell that Excel itself formats as a percentage (it holds 0.08 and
+shows 8%) is read as 8, the figure on the screen. A plain number between -1 and 1, such as
+`0.08`, is read as 0.08% and raises a warning. `amount` is a fixed sum per month. Empty `from_month`
 and `to_month` mean all 12 months. A payment that arrives late is two `amount` rows:
 minus the amount in the month it was due, plus the amount in the month it arrives. The
 base case contains no scenario.
