@@ -20,7 +20,7 @@ inside the plugin.
 |---|---|---|
 | Claude (chat, Cowork, Claude Code) | Tested | See "Install in Claude" below |
 | Hermes Agent | Tested, listed in the Hermes Marketplace | `hermes plugins install treasury-cash-forecast` ([its own repository](https://github.com/Prabhusekaran/hermes-treasury-cash-forecast)) |
-| ChatGPT and Codex | Built to the documented plugin format, not yet run there, not in the directory | See "ChatGPT and Codex" below |
+| ChatGPT and Codex | Tested in the ChatGPT desktop app on macOS (Work mode, 28 November 2026); not in the directory | See "ChatGPT and Codex" below |
 | DeepSeek Harness | Tested as a skill (harness 0.2.2-rc.1, 25 November 2026) | See "DeepSeek Harness" below |
 
 The forecasting engine, the two example companies and the result workbook are the same
@@ -46,8 +46,7 @@ In Claude Code:
 
 The package follows the layout OpenAI documents for a skills-only plugin, with its listing
 details in `.codex-plugin/plugin.json`. It is not in the ChatGPT directory: on
-25 November 2026 OpenAI's submission portal was not accepting skills-only plugins. It has
-not been run in ChatGPT.
+25 November 2026 OpenAI's submission portal was not accepting skills-only plugins.
 
 The repository is also a plugin source for OpenAI's tools, so it can be added without the
 directory. With the Codex command-line tool installed and signed in:
@@ -56,9 +55,19 @@ directory. With the Codex command-line tool installed and signed in:
 codex plugin marketplace add Prabhusekaran/treasury-cash-forecast
 ```
 
-Then open Plugins in the ChatGPT desktop app (Work mode or Codex), choose "Treasury Cash
-Forecast" as the source and install the plugin. This route follows OpenAI's documentation
-and has not been tested yet.
+Then restart the ChatGPT desktop app, switch to Work mode (or Codex), open Plugins, choose
+"Treasury Cash Forecast" as the source and install the plugin.
+
+Here the engine runs on your own computer, so Python 3.9 or newer and the two libraries
+must be installed there:
+
+```
+python3 -m pip install "statsmodels>=0.14,<1" "openpyxl>=3.1,<4"
+```
+
+Tested on 28 November 2026 in the ChatGPT desktop app on macOS (Work mode, Python 3.9.6)
+with the hotel example: the figures match those in Claude to within one cent. Not tested
+on Windows.
 
 Or copy only the skill into your skills folder:
 
