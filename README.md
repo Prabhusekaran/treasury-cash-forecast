@@ -49,7 +49,18 @@ details in `.codex-plugin/plugin.json`. It is not in the ChatGPT directory: on
 25 November 2026 OpenAI's submission portal was not accepting skills-only plugins. It has
 not been run in ChatGPT.
 
-To try the skill in Codex on your own computer, copy it into your skills folder:
+The repository is also a plugin source for OpenAI's tools, so it can be added without the
+directory. With the Codex command-line tool installed and signed in:
+
+```
+codex plugin marketplace add Prabhusekaran/treasury-cash-forecast
+```
+
+Then open Plugins in the ChatGPT desktop app (Work mode or Codex), choose "Treasury Cash
+Forecast" as the source and install the plugin. This route follows OpenAI's documentation
+and has not been tested yet.
+
+Or copy only the skill into your skills folder:
 
 ```
 git clone https://github.com/Prabhusekaran/treasury-cash-forecast

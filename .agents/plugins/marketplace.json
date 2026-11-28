@@ -1,0 +1,21 @@
+{
+  "name": "treasury-cash-forecast",
+  "interface": {
+    "displayName": "Treasury Cash Forecast"
+  },
+  "plugins": [
+    {
+      "name": "treasury-cash-forecast",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Prabhusekaran/treasury-cash-forecast.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Finance"
+    }
+  ]
+}
