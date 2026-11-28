@@ -26,8 +26,11 @@ Changes made to the copy, and nothing else:
   7. A cell of that column which Excel formats as a percentage (it holds 0.08 and shows 8%) is
      read as 8, the figure on the screen, instead of 0.08. A plain number between -1 and 1 is
      still read as typed, with a warning (loader.py).
+  8. Version 0.2.5: engine/cash_flow.py and engine/cash_flow_schema.py start with
+     "from __future__ import annotations", so the package also loads on Python 3.9 and 3.10
+     (it needed 3.11 before). Nothing else in those files changed.
 
 The arithmetic and the cash reconciliation run in code. No network calls, no credentials; it
 reads only the input it is given and writes only where it is told to.
 """
-__version__ = "0.2.4"
+__version__ = "0.2.5"

@@ -67,7 +67,8 @@ Models: `ets` (default), `sarima`, `baseline`, `seasonal_drift`, `seasonal_naive
 
 ## Before the first command
 
-The engine needs two Python libraries. Check once per session:
+The engine needs Python 3.9 or newer and two Python libraries. Use the same `python3` for
+the check, the install and the script. Check once per session:
 
 ```
 python3 -c "import statsmodels, openpyxl"
@@ -76,7 +77,7 @@ python3 -c "import statsmodels, openpyxl"
 If that fails, install them, then continue:
 
 ```
-pip install "statsmodels>=0.14,<1" "openpyxl>=3.1,<4"
+python3 -m pip install "statsmodels>=0.14,<1" "openpyxl>=3.1,<4"
 ```
 
 If pip refuses because the environment is managed, add `--break-system-packages`. If the

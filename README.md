@@ -66,7 +66,7 @@ Or copy only the skill into your skills folder:
 git clone https://github.com/Prabhusekaran/treasury-cash-forecast
 mkdir -p ~/.agents/skills
 cp -r treasury-cash-forecast/skills/cash-forecast ~/.agents/skills/
-pip install "statsmodels>=0.14,<1" "openpyxl>=3.1,<4"
+python3 -m pip install "statsmodels>=0.14,<1" "openpyxl>=3.1,<4"
 ```
 
 ## DeepSeek Harness
@@ -119,9 +119,9 @@ The plugin sends nothing anywhere. It reads only the file you give the assistant
 writes the result in the assistant's working folder. It makes no network calls, needs no
 account and stores no credentials. See [PRIVACY.md](PRIVACY.md).
 
-It needs two open-source Python libraries, `statsmodels` and `openpyxl`. If they are not
+It needs Python 3.9 or newer and two open-source Python libraries, `statsmodels` and `openpyxl`. If they are not
 already present where the assistant runs code, the assistant installs them from the
-Python Package Index with `pip install "statsmodels>=0.14,<1" "openpyxl>=3.1,<4"`.
+Python Package Index with `python3 -m pip install "statsmodels>=0.14,<1" "openpyxl>=3.1,<4"`.
 Nothing else is downloaded.
 
 ## Limits

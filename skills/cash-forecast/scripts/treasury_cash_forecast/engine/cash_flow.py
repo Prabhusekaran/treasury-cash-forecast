@@ -1,4 +1,6 @@
 """Deterministic 12-month direct cash-movement assembly and reconciliation."""
+
+from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date
 from decimal import Decimal

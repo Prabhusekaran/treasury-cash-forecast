@@ -28,6 +28,7 @@ HERE = Path(__file__).resolve().parent
 LIBRARIES = {"statsmodels": "statsmodels>=0.14,<1", "openpyxl": "openpyxl>=3.1,<4"}
 MODELS = ["ets", "sarima", "baseline", "seasonal_drift", "seasonal_naive", "previous_month", "chronos_2"]
 UPLOAD_PREFIX = re.compile(r"^[0-9a-f]{8}-(?P<name>.+)$")
+MINIMUM_PYTHON = (3, 9)
 UPLOAD_FOLDERS = (Path("/mnt/user-data/uploads"),)      # where chat uploads are kept, when the host has one
 
 
@@ -116,15 +117,24 @@ def default_output_dir(input_path, loader):
 
 def main(argv=None):
     args = parser().parse_args(argv)
+    if tuple(sys.version_info[:2]) < MINIMUM_PYTHON:
+        print(json.dumps({
+            "success": False,
+            "error": "This needs Python %d.%d or newer, and this is Python %d.%d. Nothing was run."
+                     % (MINIMUM_PYTHON + tuple(sys.version_info[:2])),
+            "next_step": "Run the same command with a newer Python, for example python3.11 in place of python3. "
+                         "If none is installed, tell the user that the forecast cannot run here and why.",
+        }, indent=2))
+        return 1
     missing = missing_libraries()
     if missing:
-        install = "pip install " + " ".join(f'"{LIBRARIES[name]}"' for name in LIBRARIES)
+        install = "python3 -m pip install " + " ".join(f'"{LIBRARIES[name]}"' for name in LIBRARIES)
         print(json.dumps({
             "success": False,
             "error": "Python cannot load " + " and ".join(missing) + " in this session. Nothing was run.",
             "install_command": install,
             "next_step": "Run the install command once, then run this command again unchanged. If pip refuses "
-                         "because the environment is managed, add --break-system-packages.",
+                         "because the environment is managed, add --break-system-packages. Use the same Python for pip and for this script.",
         }, indent=2))
         return 1
 

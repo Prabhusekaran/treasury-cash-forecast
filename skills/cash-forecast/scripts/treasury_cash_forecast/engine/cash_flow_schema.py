@@ -3,6 +3,8 @@
 Amounts are signed cash movements (receipts positive, payments negative).
 The CFS schema version is independent of the existing evaluator schema.
 """
+
+from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import date
 from decimal import Decimal, InvalidOperation, ROUND_HALF_EVEN
